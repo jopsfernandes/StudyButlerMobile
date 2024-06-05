@@ -1,17 +1,23 @@
-import { View, Text, StyleSheet } from 'react-native';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Questions from '../src/screens/Questions';
+import Splash from '../src/screens/Splash';
 
-export default function HomeScreen() {
+const Stack = createNativeStackNavigator();
+
+function AppNavigation() {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
+    
+      <Stack.Navigator>
+          
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Questions" component={Questions} />
+        
+      </Stack.Navigator>
+  
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default AppNavigation;
